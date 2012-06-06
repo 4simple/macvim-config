@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gbk" />
+<title>Sample page | 淘宝网</title>
+</head>
+<body>
+<div id="page">
+    <div id="header">
+	    #cursor#
+    </div>
+    <div id="content">
+		
+    </div>
+    <div id="footer">
+
+    </div>
+</div>
+<script>
+// 
+</script>
+</body>
+</html>
