@@ -1,0 +1,4 @@
+macvim-config
+=============
+
+macvim cconfigure
