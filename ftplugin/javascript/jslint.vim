@@ -165,14 +165,15 @@ function! s:JSLint()
 
   highlight link JSLintError SpellBad
   
-  let b:JSLintActive = 1
-
   if exists("b:cleared")
     if b:cleared == 0
       call s:JSLintClear()
     endif
     let b:cleared = 1
   endif
+
+  " must set JSLintActive after JSLintClear
+  let b:JSLintActive = 1
 
   let b:matched = []
   let b:matchedlines = {}
