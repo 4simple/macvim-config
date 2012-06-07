@@ -314,7 +314,6 @@ call pathogen#infect()
 "let g:JSLintHighlightErrorLine = 0
 let g:JSLintAuto = 0
 nmap <C-C> :JSLintUpdate<cr>
-nmap <C-C> :JSLintUpdate<cr>
 
 "Functions
 " textwidth

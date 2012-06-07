@@ -24,8 +24,10 @@ au InsertLeave <buffer> call s:JSLintCheck()
 au BufWritePost <buffer> call s:JSLintCheck()
 
 if exists("g:JSLintAuto") && g:JSLintAuto == 0
+    let b:JSLintActive = 0
 else
     au BufEnter <buffer> call s:JSLint()
+    let b:JSLintActive = 1
 endif
 
 " due to http://tech.groups.yahoo.com/group/vimdev/message/52115
@@ -54,14 +56,19 @@ endif
 
 function! s:JSLintUpdateAfterBuf()
   if exists("b:JSLintActive") && b:JSLintActive == 0
+    let g:xxx = 'ooxx'
     return
   endif
+
+  let g:xxx = 'xxoo'
 
   call s:JSLintUpdate()
 endfunction
 
 if !exists(":JSLintUpdate")
   command JSLintUpdate :call s:JSLintUpdate()
+endif
+if !exists(":JSLintUpdateAfterBuf")
   command JSLintUpdateAfterBuf :call s:JSLintUpdateAfterBuf()
 endif
 if !exists(":JSLintClear")
@@ -71,13 +78,10 @@ if !exists(":JSLintToggle")
   command JSLintToggle :let b:jslint_disabled = exists('b:jslint_disabled') ? b:jslint_disabled ? 0 : 1 : 1
 endif
 
-if exists("g:JSLintAuto") && g:JSLintAuto == 0
-else
-    noremap <buffer><silent> dd dd:JSLintUpdateAfterBuf<CR>
-    noremap <buffer><silent> dw dw:JSLintUpdateAfterBuf<CR>
-    noremap <buffer><silent> u u:JSLintUpdateAfterBuf<CR>
-    noremap <buffer><silent> <C-R> <C-R>:JSLintUpdateAfterBuf<CR>
-endif
+noremap <buffer><silent> dd dd:JSLintUpdateAfterBuf<CR>
+noremap <buffer><silent> dw dw:JSLintUpdateAfterBuf<CR>
+noremap <buffer><silent> u u:JSLintUpdateAfterBuf<CR>
+noremap <buffer><silent> <C-R> <C-R>:JSLintUpdateAfterBuf<CR>
 
 " Set up command and parameters
 if has("win32")
@@ -165,14 +169,15 @@ function! s:JSLint()
 
   highlight link JSLintError SpellBad
   
-  let b:JSLintActive = 1
-
   if exists("b:cleared")
     if b:cleared == 0
       call s:JSLintClear()
     endif
     let b:cleared = 1
   endif
+
+  " must set JSLintActive after JSLintClear
+  let b:JSLintActive = 1
 
   let b:matched = []
   let b:matchedlines = {}
