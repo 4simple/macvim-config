@@ -74,9 +74,6 @@ endif
 if !exists(":JSLintClear")
   command JSLintClear :call s:JSLintClear()
 endif
-if !exists(":JSLintToggle")
-  command JSLintToggle :let b:jslint_disabled = exists('b:jslint_disabled') ? b:jslint_disabled ? 0 : 1 : 1
-endif
 
 noremap <buffer><silent> dd dd:JSLintUpdateAfterBuf<CR>
 noremap <buffer><silent> dw dw:JSLintUpdateAfterBuf<CR>
@@ -113,7 +110,12 @@ let s:jslintrc_file = expand('~/.jslintrc')
 if filereadable(s:jslintrc_file)
   let s:jslintrc = readfile(s:jslintrc_file)
 else
-  let s:jslintrc = []
+    let s:jslintrc_file = s:install_dir . '/.jslintrc'
+    if filereadable(s:jslintrc_file)
+        let s:jslintrc = readfile(s:jslintrc_file)
+    else
+        let s:jslintrc = []
+    endif
 end
 
 " load .jslintrc file from the current (pwd) directory if exists
@@ -163,10 +165,6 @@ function! s:JSLintClear()
 endfunction
 
 function! s:JSLint()
-  if exists("b:jslint_disabled") && b:jslint_disabled == 1
-    return
-  endif
-
   highlight link JSLintError SpellBad
   
   if exists("b:cleared")
@@ -214,7 +212,6 @@ function! s:JSLint()
   if v:shell_error
     echoerr b:jslint_output
     echoerr 'could not invoke JSLint!'
-    let b:jslint_disabled = 1
   end
 
   for error in split(b:jslint_output, "\n")

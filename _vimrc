@@ -61,7 +61,7 @@ map <leader>ms :mksession! $VIM/
 map <leader>vsf :vertical sfind 
 map <leader>df :vert diffsplit 
 "取消搜索高亮 JSLint
-map <silent><C-h> :noh<cr>:JSLintClear<cr>
+map <silent><C-h> :noh<cr>:call JSLintClear()<cr>
 map <silent><C-Tab> :tabn<cr>
 map <silent><S-Tab> :tabp<cr>
 
@@ -313,7 +313,7 @@ call pathogen#infect()
 """"""""""""""""""""""""""""""
 "let g:JSLintHighlightErrorLine = 0
 let g:JSLintAuto = 0
-nmap <C-C> :JSLintUpdate<cr>
+nmap <S-C> :JSLintUpdate<cr>
 
 "Functions
 " textwidth
@@ -349,4 +349,11 @@ function! PageView(browser)
         return
     endif
     silent execute '!start "'.g:Browser[a:browser].'" "'.expand('%:p').'"'
+endfunction
+
+" hidden highlight
+function! JSLintClear()
+    if exists(':JSLintClear')
+        :JSLintClear
+    endif
 endfunction
