@@ -75,12 +75,17 @@ if !exists(":JSLintClear")
   command JSLintClear :call s:JSLintClear()
 endif
 
+noremap <buffer><silent> x x:JSLintUpdateAfterBuf<CR>
 noremap <buffer><silent> dd dd:JSLintUpdateAfterBuf<CR>
 noremap <buffer><silent> dw dw:JSLintUpdateAfterBuf<CR>
+noremap <buffer><silent> dl dl:JSLintUpdateAfterBuf<CR>
+noremap <buffer><silent> D D:JSLintUpdateAfterBuf<CR>
 noremap <buffer><silent> u u:JSLintUpdateAfterBuf<CR>
+noremap <buffer><silent> yy yy:JSLintUpdateAfterBuf<CR>
+noremap <buffer><silent> p p:JSLintUpdateAfterBuf<CR>
 "how to map indent key
-"noremap <buffer><silent> <S->> <S->>:JSLintUpdateAfterBuf<CR>
-"noremap <buffer><silent> <S-<> <S-<>:JSLintUpdateAfterBuf<CR>
+noremap <buffer><silent> > >:JSLintUpdateAfterBuf<CR>
+noremap <buffer><silent> < <:JSLintUpdateAfterBuf<CR>
 noremap <buffer><silent> <C-R> <C-R>:JSLintUpdateAfterBuf<CR>
 
 " Set up command and parameters
@@ -109,16 +114,11 @@ if has('win32')
 endif
 let s:cmd = 'cd "' . s:plugin_path . '" && ' . s:cmd . ' "' . s:plugin_path . 'runjslint.' . s:runjslint_ext . '"'
 
-let s:jslintrc_file = expand('~/.jslintrc')
+let s:jslintrc_file = expand(s:install_dir . '/.jslintrc')
 if filereadable(s:jslintrc_file)
   let s:jslintrc = readfile(s:jslintrc_file)
 else
-    let s:jslintrc_file = s:install_dir . '/.jslintrc'
-    if filereadable(s:jslintrc_file)
-        let s:jslintrc = readfile(s:jslintrc_file)
-    else
-        let s:jslintrc = []
-    endif
+  let s:jslintrc = []
 end
 
 " load .jslintrc file from the current (pwd) directory if exists
