@@ -62,6 +62,7 @@ map <leader>vsf :vertical sfind
 map <leader>df :vert diffsplit 
 "取消搜索高亮 JSLint
 map <silent><C-h> :noh<cr>:call JSLintClear()<cr>
+"tab
 map <silent><C-Tab> :tabn<cr>
 map <silent><S-Tab> :tabp<cr>
 
@@ -313,7 +314,7 @@ call pathogen#infect()
 """"""""""""""""""""""""""""""
 "let g:JSLintHighlightErrorLine = 0
 let g:JSLintAuto = 0
-nmap <S-C> :JSLintUpdate<cr>
+nmap <silent><S-C> :JSLintUpdate<cr>
 
 "Functions
 " textwidth

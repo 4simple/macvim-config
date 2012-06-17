@@ -78,6 +78,9 @@ endif
 noremap <buffer><silent> dd dd:JSLintUpdateAfterBuf<CR>
 noremap <buffer><silent> dw dw:JSLintUpdateAfterBuf<CR>
 noremap <buffer><silent> u u:JSLintUpdateAfterBuf<CR>
+"how to map indent key
+"noremap <buffer><silent> <S->> <S->>:JSLintUpdateAfterBuf<CR>
+"noremap <buffer><silent> <S-<> <S-<>:JSLintUpdateAfterBuf<CR>
 noremap <buffer><silent> <C-R> <C-R>:JSLintUpdateAfterBuf<CR>
 
 " Set up command and parameters
