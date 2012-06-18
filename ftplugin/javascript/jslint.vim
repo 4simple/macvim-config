@@ -1,4 +1,3 @@
-
 " Global Options
 "
 " Enable/Disable highlighting of errors in source.
@@ -56,11 +55,8 @@ endif
 
 function! s:JSLintUpdateAfterBuf()
   if exists("b:JSLintActive") && b:JSLintActive == 0
-    let g:xxx = 'ooxx'
     return
   endif
-
-  let g:xxx = 'xxoo'
 
   call s:JSLintUpdate()
 endfunction
