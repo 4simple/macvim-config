@@ -44,6 +44,15 @@ se noswapfile "禁止生成临时文件
 se autowrite "自动保存
 filetype plugin indent on "打开文件内容监测，为特定的文件类型载入插件，为不同的文件类型定义不同的缩进格式
 
+
+set iminsert=0
+set imsearch=0
+"解决输入法的困扰
+se imd 
+au InsertEnter * se noimd 
+au InsertLeave * se imd
+au FocusGained * se imd
+
 map <S-F> :tabnew <cfile><cr> "SHIFT+F
 map <silent><leader>q :q<cr>
 noremap <silent>Q ZQ<cr>
