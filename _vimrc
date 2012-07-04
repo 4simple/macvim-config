@@ -322,8 +322,15 @@ call pathogen#infect()
 " jslint
 """"""""""""""""""""""""""""""
 "let g:JSLintHighlightErrorLine = 0
-let g:JSLintAuto = 0
-nmap <silent><S-C> :JSLintUpdate<cr>
+"let g:JSLintAuto = 0
+"nmap <silent><S-C> :JSLintUpdate<cr>
+
+""""""""""""""""""""""""""""""
+" JSHint
+""""""""""""""""""""""""""""""
+"let g:JSHintHighlightErrorLine = 0
+let g:JSHintAuto = 0
+nmap <silent><S-C> :JSHintUpdate<cr>
 
 "Functions
 " textwidth
@@ -363,7 +370,7 @@ endfunction
 
 " hidden highlight
 function! JSLintClear()
-    if exists(':JSLintClear')
-        :JSLintClear
+    if exists(':JSHintClear')
+        :JSHintClear
     endif
 endfunction
