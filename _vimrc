@@ -95,9 +95,9 @@ map <leader>fg :se fenc=gbk<esc>:w<cr>
 "new tab remove empty tab
 "au BufEnter * call DelEmptyBuf()
 
+colo simple
 if has("gui_running") "GUI settings
     "theme
-    colo simple
     se gfn=Courier:h16
     "se gfn=Bitstream_Vera_Sans_Mono:h16
     "se gfn=Menlo:h16
