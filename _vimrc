@@ -38,7 +38,6 @@ se wildmenu
 set laststatus=2
 se statusline=%F%m%r%h%w\ [ff=%{&ff}\ ft=%Y\ fenc=%{&fenc}]\ [pos=%l,%v\ %p%%]\ [lines=%L]
 
-
 se nobackup "禁止生成备份文件
 se noswapfile "禁止生成临时文件
 se autowrite "自动保存

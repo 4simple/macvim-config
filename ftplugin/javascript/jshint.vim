@@ -28,13 +28,13 @@ au BufWritePost <buffer> call s:JSHintCheck()
 if exists("g:JSHintAuto") && g:JSHintAuto == 0
     let b:JSHintActive = 0
 else
-    au BufEnter <buffer> call s:JSLintCheck()
-    let b:JSLintActive = 1
+    let b:JSHintActive = 1
+    au BufEnter <buffer> call s:JSHintCheck()
 endif
 
 " due to http://tech.groups.yahoo.com/group/vimdev/message/52115
 if(!has("win32") || v:version>702)
-    if exists("g:JSLintAuto") && g:JSLintAuto == 0
+    if exists("g:JSHintAuto") && g:JSHintAuto == 0
     else
         au CursorHold <buffer> call s:JSHint()
         au CursorHoldI <buffer> call s:JSHint()
@@ -167,7 +167,7 @@ function! s:JSHint()
       let b:cleared = 1
   endif
 
-  " must set JSLintActive after JSLintClear
+  " must set JSHintActive after JSHintClear
   let b:JSHintActive = 1
 
   let b:matched = []
