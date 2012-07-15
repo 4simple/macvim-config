@@ -58,7 +58,7 @@ hi link SpecialChar Special
 hi link Tag Special
 hi link Delimiter Special
 hi link SpecialComment Special
-hi Debug guifg=#0F6901
+hi Debug guifg=#930103
 hi link SpecialChar Special
 
 hi Underlined guifg=#3366CC

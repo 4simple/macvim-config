@@ -55,10 +55,10 @@ syn keyword javaScriptException		try catch finally throw
 syn keyword javaScriptMessage		alert confirm prompt status
 syn keyword javaScriptGlobal		window top parent Math
 syn keyword javaScriptMember		document documentElement event location navigator screen history
-syn keyword javaScriptMethod            parseInt parseFloat escape unescape encodeURI encodeURIComponent toLowerCase toUpperCase decodeURI decodeURIComponent getClass isFinite isNaN
+syn keyword javaScriptMethod        parseInt parseFloat escape unescape encodeURI encodeURIComponent toLowerCase toUpperCase decodeURI decodeURIComponent getClass isFinite isNaN
 syn keyword javaScriptDeprecated	escape unescape
 syn keyword javaScriptReserved		abstract boolean byte char class const debugger double enum export extends final float goto implements import int interface long native package private protected public short static super synchronized throws transient volatile 
-syn keyword javaScriptDebug             console debugger
+syn keyword javaScriptDebug         console debugger log debug warn
 
 " vim: ts=8
 syn keyword javaScriptType		Array Boolean Date Function Number Object String RegExp

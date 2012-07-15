@@ -69,7 +69,7 @@ map <leader>ms :mksession! $VIM/
 map <leader>vsf :vertical sfind 
 map <leader>df :vert diffsplit 
 "取消搜索高亮 JSLint
-map <silent><C-h> :noh<cr>:call JSLintClear()<cr>
+map <silent><C-h> :noh<cr>:call JSHintClear()<cr>
 "tab
 map <silent><C-Tab> :tabn<cr>
 map <silent><S-Tab> :tabp<cr>
@@ -368,7 +368,7 @@ function! PageView(browser)
 endfunction
 
 " hidden highlight
-function! JSLintClear()
+function! JSHintClear()
     if exists(':JSHintClear')
         :JSHintClear
     endif
