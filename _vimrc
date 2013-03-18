@@ -16,14 +16,14 @@ se si "智能缩进
 se go= "隐藏菜单栏 
 se helplang=cn "帮助语言
 se syn=on "语法高亮
-se softtabstop=4
 se shiftwidth=4
-se confirm "在处理为保存或制度文件的时候，弹出确认
-se cindent "C语言风格自动缩进
-se foldmethod=indent "按缩进进行自动折叠
+se softtabstop=4
 se tabstop=4 "tab键宽度
 "se noexpandtab "不要用空格代替制表符
 se expandtab "用空格代替制表符
+se confirm "在处理为保存或制度文件的时候，弹出确认
+se cindent "C语言风格自动缩进
+se foldmethod=indent "按缩进进行自动折叠
 se ruler "右下角状态行
 se hls "高亮搜索
 se matchtime=5 "高亮显示匹配的括号
@@ -35,7 +35,7 @@ let mapleader = ','
 se ff=unix
 se wildmenu
 " status
-set laststatus=2
+se laststatus=2
 se statusline=%F%m%r%h%w\ [ff=%{&ff}\ ft=%Y\ fenc=%{&fenc}]\ [pos=%l,%v\ %p%%]\ [lines=%L]
 
 se nobackup "禁止生成备份文件
@@ -43,16 +43,16 @@ se noswapfile "禁止生成临时文件
 se autowrite "自动保存
 filetype plugin indent on "打开文件内容监测，为特定的文件类型载入插件，为不同的文件类型定义不同的缩进格式
 
-
-set iminsert=0
-set imsearch=0
 "解决输入法的困扰
+se iminsert=0
+se imsearch=0
 se imd 
 au InsertEnter * se noimd 
 au InsertLeave * se imd
 au FocusGained * se imd
 
-map <S-F> :tabnew <cfile><cr> "SHIFT+F
+"SHIFT+F
+map <S-F> :tabnew <cfile><cr>
 map <silent><leader>q :q<cr>
 noremap <silent>Q ZQ<cr>
 map <leader>n :new 
@@ -125,11 +125,11 @@ au FileType nerdtree :setl nofoldenable
 au BufEnter * silent! lcd %:p:h "自动cd到当前文件目录
 
 "自动完成括号和引号 mac下和输入法有冲突
-"inoremap ( ()<esc>:let leavechar=")"<cr>i
-"inoremap [ []<esc>:let leavechar="]"<cr>i
-"inoremap { {}<esc>:let leavechar="}"<cr>i
+inoremap ( ()<esc>:let leavechar=")"<cr>i
+inoremap [ []<esc>:let leavechar="]"<cr>i
+inoremap { {}<esc>:let leavechar="}"<cr>i
 "inoremap ' ''<esc>:let leavechar="'"<cr>i
-"inoremap " ""<esc>:let leavechar='"'<cr>i
+inoremap " ""<esc>:let leavechar='"'<cr>i
 
 "template
 nmap <silent><C-N> :SimpleTemplateTab tb.html<cr>
@@ -138,6 +138,7 @@ nmap <silent><C-J> :SimpleTemplateTab js.js<cr>
 nmap <silent><C-Y> :SimpleTemplateTab css.css<cr>
 nmap <silent><C-P> :SimpleTemplateTab php.php<cr>
 nmap <silent><C-X> :SimpleTemplateTab xml.xml<cr>
+"nmap <silent><C-R> :SimpleTemplateTab reset.css<cr>
 
 "set filetype
 nmap <silent><S-T><S-H> :se ft=xhtml<cr>
@@ -236,6 +237,7 @@ endfunction
 """"""""""""""""""""""""""""""
 " NERD_tree
 """"""""""""""""""""""""""""""
+let NERDTreeShowHidden=1
 nmap <leader>d :NERDTree<cr>
 
 """"""""""""""""""""""""""""""

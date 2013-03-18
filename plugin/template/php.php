@@ -1,10 +1,10 @@
 <?php
 /**
- * @name:#filename#
- *
- * @author:#email#
- * @date:#date#
- * @link:
+ * @name: #filename#
+ * @description: 
+ * @author: #email#
+ * @date: #date#
+ * @link: 
  *
 **/
 

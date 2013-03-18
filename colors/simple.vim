@@ -93,7 +93,7 @@ hi link MoreMsg ErrorMsg
 "NonText
 hi Normal guifg=#AAAAAA guibg=#1F1F1F
 "Pmenu
-"PmenuSel
+hi PmenuSel guifg=#000000
 "PmenuSbar
 "PmenuThumb
 "Question
