@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/o/dev/vim/plugin/jslint.vim'
 let g:netrw_dirhist_2='/Users/o/.vim/util/vundle'
 let g:netrw_dirhist_3='/Users/o/.vim/ftplugin/javascript/jshint'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/usr'
 let g:netrw_dirhist_6='/Users'
 let g:netrw_dirhist_7='/etc'
 let g:netrw_dirhist_8='/private/etc/apache2'
+let g:netrw_dirhist_9='/Users/o/tb/tb-demo/login2.0'

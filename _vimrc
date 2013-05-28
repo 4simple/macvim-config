@@ -235,6 +235,12 @@ endfunction
 " ===============
 
 """"""""""""""""""""""""""""""
+" pathogen
+""""""""""""""""""""""""""""""
+execute pathogen#infect()
+
+
+""""""""""""""""""""""""""""""
 " NERD_tree
 """"""""""""""""""""""""""""""
 let NERDTreeShowHidden=1
@@ -245,8 +251,6 @@ nmap <leader>d :NERDTree<cr>
 """"""""""""""""""""""""""""""
 let g:snips_author = 'wondger'
 let g:snippets_dir = '~/.vim/snippets/'
-"ino <tab> <c-r>=TriggerSnippet()<cr>
-"snor <tab> <esc>i<right><c-r>=TriggerSnippet()<cr>
 
 """"""""""""""""""""""""""""""
 " SimpleTemplate
